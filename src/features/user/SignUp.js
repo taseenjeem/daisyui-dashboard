@@ -1,62 +1,73 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import auth from '../../app/Authentication/firebase.init';
 import Loading from '../../components/Alerts/Loading';
+import auth from '../../app/Authentication/firebase.init';
 
-const Login = () => {
+const SignUp = () => {
 
-    // Login function
-    const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    // New user create function from Firebase
+    const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth,
+        { sendEmailVerification: true }
+    );
 
     // React Hook Form function
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
-    // Handling login form
+    // Handling the user create form submission
     const onSubmit = async data => {
-        await signInWithEmailAndPassword(data.email, data.password);
-        reset();
+        if (data?.password === data?.confirmpass) {
+            await createUserWithEmailAndPassword(data.email, data.password);
+            reset();
+        } else {
+            Swal.fire(
+                'Error',
+                'Your password did not matched',
+                'error'
+            )
+        }
     };
 
-    // Error massage
-    useEffect(() => {
-        if (error?.message === "Firebase: Error (auth/user-not-found).") {
-            Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: 'No user found. Please check your information',
-                showConfirmButton: true,
-            })
-        };
-    }, [error?.message]);
-
-    // After completing the login process, it will navigate main route
+    // After completing the signup process, it will navigate main route
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     const navigate = useNavigate();
 
+    // Notification after success
     useEffect(() => {
         if (user) {
             navigate(from, { replace: true });
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Login Successful',
+                title: 'Account created successful',
                 showConfirmButton: false,
                 timer: 2000
             })
         }
-    }, [user, from, navigate])
+    }, [from, navigate, user]);
+
+    // Error massage
+    useEffect(() => {
+        if (error) {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Something went wrong. Please try again.',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+    }, [error])
 
     return (
         <>
             {
                 loading ?
 
-                    <Loading
-                    />
+                    <Loading />
 
                     :
                     <section className="">
@@ -80,7 +91,7 @@ const Login = () => {
                                     <h1
                                         className="mt-6 text-2xl font-bold text-neutral-900 sm:text-3xl md:text-4xl"
                                     >
-                                        Welcome Back to Dashboard Pro
+                                        Welcome to Dashboard Pro
                                     </h1>
 
                                     <p className="my-6 leading-relaxed text-neutral-900">
@@ -129,10 +140,30 @@ const Login = () => {
                                             </label>
                                         </div>
 
-                                        <input type="submit" value='Log in' className="btn btn-primary text-white capitalize w-full mt-3" />
+                                        <div className="form-control">
+                                            <label className="label">
+                                                <span className="label-text">Confirm Password</span>
+                                            </label>
+                                            <input type="password" placeholder="Confirm your password" className="input input-bordered input-primary text-black" {...register("confirmpass", {
+                                                required: {
+                                                    value: true,
+                                                    message: "Confirm Password is required"
+                                                },
+                                                minLength: {
+                                                    value: 6,
+                                                    message: "Minimum 6 characters required"
+                                                }
+                                            })} />
+                                            <label className="label">
+                                                {errors.confirmpass?.type === 'required' && <span className="label-text-alt text-red-500">{errors.confirmpass.message}</span>}
+                                                {errors.confirmpass?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.confirmpass.message}</span>}
+                                            </label>
+                                        </div>
+
+                                        <input type="submit" value='Create A New Account' className="btn btn-primary text-white capitalize w-full mt-3" />
                                     </form>
 
-                                    <p className='text-center mt-5'>Don't have an account? <Link className='underline underline-offset-2 text-primary' to="/create-account">Create A New Account</Link></p>
+                                    <p className='text-center mt-5'>Already have an account? <Link className='underline underline-offset-2 text-primary' to="/login">Login</Link></p>
 
                                 </div>
                             </main>
@@ -143,4 +174,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;

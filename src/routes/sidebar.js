@@ -1,23 +1,10 @@
 /** Icons are imported separatly to reduce build time */
-import BellIcon from '@heroicons/react/24/outline/BellIcon'
-import DocumentTextIcon from '@heroicons/react/24/outline/DocumentTextIcon'
-import Squares2X2Icon from '@heroicons/react/24/outline/Squares2X2Icon'
-import TableCellsIcon from '@heroicons/react/24/outline/TableCellsIcon'
-import WalletIcon from '@heroicons/react/24/outline/WalletIcon'
-import CodeBracketSquareIcon from '@heroicons/react/24/outline/CodeBracketSquareIcon'
-import DocumentIcon from '@heroicons/react/24/outline/DocumentIcon'
-import ExclamationTriangleIcon from '@heroicons/react/24/outline/ExclamationTriangleIcon'
-import ShieldCheckIcon from '@heroicons/react/24/outline/ShieldCheckIcon'
-import ArrowRightOnRectangleIcon from '@heroicons/react/24/outline/ArrowRightOnRectangleIcon'
-import UserIcon from '@heroicons/react/24/outline/UserIcon'
-import Cog6ToothIcon from '@heroicons/react/24/outline/Cog6ToothIcon'
-import BoltIcon from '@heroicons/react/24/outline/BoltIcon'
-import ChartBarIcon from '@heroicons/react/24/outline/ChartBarIcon'
-import InformationCircleIcon from '@heroicons/react/24/outline/InformationCircleIcon'
-import InboxArrowDownIcon from '@heroicons/react/24/outline/InboxArrowDownIcon'
-import UsersIcon from '@heroicons/react/24/outline/UsersIcon'
-import KeyIcon from '@heroicons/react/24/outline/KeyIcon'
-import DocumentDuplicateIcon from '@heroicons/react/24/outline/DocumentDuplicateIcon'
+import { MdDashboardCustomize, MdManageAccounts, MdPeopleAlt, MdLocalOffer } from 'react-icons/md';
+import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
+import { TbGridDots } from 'react-icons/tb';
+import { TfiWrite } from 'react-icons/tfi';
+import { RiContactsBookFill, RiDraftFill, RiLuggageDepositFill } from 'react-icons/ri';
+import { GrTransaction } from 'react-icons/gr';
 
 const iconClasses = `h-6 w-6`
 const submenuIconClasses = `h-5 w-5`
@@ -26,102 +13,108 @@ const routes = [
 
   {
     path: '/app/dashboard',
-    icon: <Squares2X2Icon className={iconClasses}/>, 
+    icon: <MdDashboardCustomize className={iconClasses} />,
     name: 'Dashboard',
   },
   {
-    path: '/app/leads', // url
-    icon: <InboxArrowDownIcon className={iconClasses}/>, // icon component
-    name: 'Leads', // name that appear in Sidebar
+    path: '', //no url needed as this has submenu
+    icon: <MdManageAccounts className={`${iconClasses} inline`} />, // icon component
+    name: 'Manage Assistants', // name that appear in Sidebar
+    submenu: [
+      {
+        path: '/app/manage-assistant/view-all',
+        icon: <TbGridDots className={submenuIconClasses} />,
+        name: 'View All',
+      },
+      {
+        path: '/app/manage-assistant/add-new-assistant', //url
+        icon: <TbGridDots className={submenuIconClasses} />, // icon component
+        name: 'Add New Assistant', // name that appear in Sidebar
+      },
+    ]
   },
   {
-    path: '/app/charts', // url
-    icon: <ChartBarIcon className={iconClasses}/>, // icon component
-    name: 'Charts', // name that appear in Sidebar
+    path: '', //no url needed as this has submenu
+    icon: <MdPeopleAlt className={`${iconClasses} inline`} />, // icon component
+    name: 'Manage Clients', // name that appear in Sidebar
+    submenu: [
+      {
+        path: '/app/manage-clients/view-all',
+        icon: <TbGridDots className={submenuIconClasses} />,
+        name: 'View All',
+      },
+      {
+        path: '/app/manage-clients/add-new-client', //url
+        icon: <TbGridDots className={submenuIconClasses} />, // icon component
+        name: 'Add New Clients', // name that appear in Sidebar
+      },
+    ]
   },
   {
-    path: '/app/integration', // url
-    icon: <BoltIcon className={iconClasses}/>, // icon component
-    name: 'Integration', // name that appear in Sidebar
+    path: '', //no url needed as this has submenu
+    icon: <AiOutlineFundProjectionScreen className={`${iconClasses} inline`} />, // icon component
+    name: 'View Projects', // name that appear in Sidebar
+    submenu: [
+      {
+        path: '/app/view-projects/ordered-projects',
+        icon: <TbGridDots className={submenuIconClasses} />,
+        name: 'Ordered Projects',
+      },
+      {
+        path: '/app/view-projects/Recurring Services', //url
+        icon: <TbGridDots className={submenuIconClasses} />, // icon component
+        name: 'Recurring Services', // name that appear in Sidebar
+      },
+      {
+        path: '/app/view-projects/scheduled-services', //url
+        icon: <TbGridDots className={submenuIconClasses} />, // icon component
+        name: 'Scheduled Services', // name that appear in Sidebar
+      },
+    ]
+  },
+  {
+    path: '/app/order-services',
+    icon: <TfiWrite className={iconClasses} />,
+    name: 'Order Services',
+  },
+  {
+    path: '/app/draft-services',
+    icon: <RiDraftFill className={iconClasses} />,
+    name: 'Draft Services',
+  },
+  {
+    path: '', //no url needed as this has submenu
+    icon: <MdLocalOffer className={`${iconClasses} inline`} />, // icon component
+    name: 'Services Offered', // name that appear in Sidebar
+    submenu: [
+      {
+        path: '/app/services-offered/view-all',
+        icon: <TbGridDots className={submenuIconClasses} />,
+        name: 'View All',
+      },
+      {
+        path: '/app/services-offered/download-price-list', //url
+        icon: <TbGridDots className={submenuIconClasses} />, // icon component
+        name: 'Download Price List', // name that appear in Sidebar
+      },
+    ]
+  },
+  {
+    path: '/app/deposit-funds',
+    icon: <RiLuggageDepositFill className={iconClasses} />,
+    name: 'Deposit Funds',
+  },
+  {
+    path: '/app/transaction-logs',
+    icon: <GrTransaction className={iconClasses} />,
+    name: 'Transaction Logs',
+  },
+  {
+    path: '/app/contacts',
+    icon: <RiContactsBookFill className={iconClasses} />,
+    name: 'Contact',
   },
 
-  {
-    path: '', //no url needed as this has submenu
-    icon: <DocumentDuplicateIcon className={`${iconClasses} inline` }/>, // icon component
-    name: 'Pages', // name that appear in Sidebar
-    submenu : [
-      {
-        path: '/login',
-        icon: <ArrowRightOnRectangleIcon className={submenuIconClasses}/>,
-        name: 'Login',
-      },
-      {
-        path: '/register', //url
-        icon: <UserIcon className={submenuIconClasses}/>, // icon component
-        name: 'Register', // name that appear in Sidebar
-      },
-      {
-        path: '/forgot-password',
-        icon: <KeyIcon className={submenuIconClasses}/>,
-        name: 'Forgot Password',
-      },
-      {
-        path: '/app/blank',
-        icon: <DocumentIcon className={submenuIconClasses}/>,
-        name: 'Blank Page',
-      },
-      {
-        path: '/app/404',
-        icon: <ExclamationTriangleIcon className={submenuIconClasses}/>,
-        name: '404',
-      },
-    ]
-  },
-  {
-    path: '', //no url needed as this has submenu
-    icon: <Cog6ToothIcon className={`${iconClasses} inline` }/>, // icon component
-    name: 'Settings', // name that appear in Sidebar
-    submenu : [
-      {
-        path: '/app/settings-profile', //url
-        icon: <UserIcon className={submenuIconClasses}/>, // icon component
-        name: 'Profile', // name that appear in Sidebar
-      },
-      {
-        path: '/app/settings-billing',
-        icon: <WalletIcon className={submenuIconClasses}/>,
-        name: 'Billing',
-      },
-      {
-        path: '/app/settings-team', // url
-        icon: <UsersIcon className={submenuIconClasses}/>, // icon component
-        name: 'Team Members', // name that appear in Sidebar
-      },
-    ]
-  },
-  {
-    path: '', //no url needed as this has submenu
-    icon: <DocumentTextIcon className={`${iconClasses} inline` }/>, // icon component
-    name: 'Documentation', // name that appear in Sidebar
-    submenu : [
-      {
-        path: '/app/getting-started', // url
-        icon: <DocumentTextIcon className={submenuIconClasses}/>, // icon component
-        name: 'Getting Started', // name that appear in Sidebar
-      },
-      {
-        path: '/app/features',
-        icon: <TableCellsIcon className={submenuIconClasses}/>, 
-        name: 'Features',
-      },
-      {
-        path: '/app/components',
-        icon: <CodeBracketSquareIcon className={submenuIconClasses}/>, 
-        name: 'Components',
-      }
-    ]
-  },
-  
 ]
 
 export default routes

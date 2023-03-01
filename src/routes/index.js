@@ -3,18 +3,19 @@
 import { lazy } from 'react'
 
 const Dashboard = lazy(() => import('../pages/protected/Dashboard'))
-const Welcome = lazy(() => import('../pages/protected/Welcome'))
 const Page404 = lazy(() => import('../pages/protected/404'))
 const Blank = lazy(() => import('../pages/protected/Blank'))
 const Charts = lazy(() => import('../pages/protected/Charts'))
-const Leads = lazy(() => import('../pages/protected/Leads'))
 const Integration = lazy(() => import('../pages/protected/Integration'))
-const Team = lazy(() => import('../pages/protected/Team'))
 const Bills = lazy(() => import('../pages/protected/Bills'))
 const ProfileSettings = lazy(() => import('../pages/protected/ProfileSettings'))
 const GettingStarted = lazy(() => import('../pages/GettingStarted'))
 const DocFeatures = lazy(() => import('../pages/DocFeatures'))
 const DocComponents = lazy(() => import('../pages/DocComponents'))
+const TransactionLogs = lazy(() => import('../pages/protected/TransactionLogs'))
+const Contact = lazy(() => import('../pages/protected/Contact'))
+const DraftServices = lazy(() => import('../pages/protected/DraftServices'))
+const OrderService = lazy(() => import('../pages/protected/OrderService.js'))
 
 
 const routes = [
@@ -23,20 +24,20 @@ const routes = [
     component: Dashboard, // view rendered
   },
   {
-    path: '/welcome', // the url
-    component: Welcome, // view rendered
+    path: '/transaction-logs', // the url
+    component: TransactionLogs, // view rendered
   },
   {
-    path: '/leads',
-    component: Leads,
+    path: '/contacts',
+    component: Contact,
   },
   {
-    path: '/settings-team',
-    component: Team,
+    path: '/draft-services',
+    component: DraftServices,
   },
   {
-    path: '/settings-profile',
-    component: ProfileSettings,
+    path: '/order-services',
+    component: OrderService,
   },
   {
     path: '/settings-billing',
