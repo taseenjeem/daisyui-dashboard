@@ -18,6 +18,8 @@ const DraftServices = lazy(() => import('../pages/protected/DraftServices'))
 const OrderService = lazy(() => import('../pages/protected/OrderService.js'))
 const MAViewAll = lazy(() => import('../pages/protected/MAViewAll.js'))
 const AddNewAssistant = lazy(() => import('../pages/protected/AddNewAssistant'))
+const MCViewAll = lazy(() => import('../pages/protected/MCViewAll'))
+const AddNewClient = lazy(() => import('../pages/protected/AddNewClient'))
 
 
 const routes = [
@@ -50,12 +52,12 @@ const routes = [
     component: AddNewAssistant,
   },
   {
-    path: '/features',
-    component: DocFeatures,
+    path: '/manage-clients/view-all',
+    component: MCViewAll,
   },
   {
-    path: '/components',
-    component: DocComponents,
+    path: '/manage-clients/add-new-client',
+    component: AddNewClient,
   },
   {
     path: '/integration',
