@@ -61,7 +61,7 @@ const routes = [
         name: 'Ordered Projects',
       },
       {
-        path: '/app/view-projects/Recurring Services', //url
+        path: '/app/view-projects/recurring-services', //url
         icon: <TbGridDots className={submenuIconClasses} />, // icon component
         name: 'Recurring Services', // name that appear in Sidebar
       },
