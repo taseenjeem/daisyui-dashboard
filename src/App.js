@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { themeChange } from 'theme-change'
 import auth from './app/Authentication/firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import AuthVerification from './app/Authentication/AuthVerification';
 
 // Importing pages
 const Layout = lazy(() => import('./containers/Layout'))
@@ -41,7 +42,7 @@ function App() {
           <Route path="/documentation" element={<Documentation />} />
 
           {/* Place new routes over this */}
-          <Route path="/app/*" element={<Layout />} />
+          <Route path="/app/*" element={<AuthVerification><Layout /></AuthVerification>} />
 
           <Route path="*" element={<Navigate to={user ? "/app/dashboard" : "/login"} replace />} />
 
