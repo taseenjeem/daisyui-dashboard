@@ -16,6 +16,8 @@ const TransactionLogs = lazy(() => import('../pages/protected/TransactionLogs'))
 const Contact = lazy(() => import('../pages/protected/Contact'))
 const DraftServices = lazy(() => import('../pages/protected/DraftServices'))
 const OrderService = lazy(() => import('../pages/protected/OrderService.js'))
+const MAViewAll = lazy(() => import('../pages/protected/MAViewAll.js'))
+const AddNewAssistant = lazy(() => import('../pages/protected/AddNewAssistant'))
 
 
 const routes = [
@@ -40,12 +42,12 @@ const routes = [
     component: OrderService,
   },
   {
-    path: '/settings-billing',
-    component: Bills,
+    path: '/manage-assistant/view-all',
+    component: MAViewAll,
   },
   {
-    path: '/getting-started',
-    component: GettingStarted,
+    path: '/manage-assistant/add-new-assistant',
+    component: AddNewAssistant,
   },
   {
     path: '/features',
