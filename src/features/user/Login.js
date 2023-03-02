@@ -1,15 +1,17 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import auth from '../../app/Authentication/firebase.init';
 import Loading from '../../components/Alerts/Loading';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
 
     // Login function
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
 
     // React Hook Form function
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -30,7 +32,37 @@ const Login = () => {
                 showConfirmButton: true,
             })
         };
-    }, [error?.message]);
+
+        if (error?.message === "Firebase: Error (auth/wrong-password).") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'You entered a wrong password',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        };
+
+        if (error?.message === "Firebase: Error (auth/invalid-email).") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Invalid Email',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        };
+
+        if (googleError?.message === "Firebase: Error (auth/popup-closed-by-user).") {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'You closed the popup',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        };
+    }, [error?.message, googleError?.message]);
 
     // After completing the login process, it will navigate main route
     const location = useLocation();
@@ -38,7 +70,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (user) {
+        if (user || googleUser) {
             navigate(from, { replace: true });
             Swal.fire({
                 position: 'center',
@@ -48,27 +80,27 @@ const Login = () => {
                 timer: 2000
             })
         }
-    }, [user, from, navigate])
+    }, [user, from, navigate, googleUser])
 
     return (
         <>
             {
-                loading ?
+                loading || googleLoading ?
 
                     <Loading
                     />
 
                     :
                     <section className="">
-                        <div className="lg:min-h-screen flex items-center justify-center">
-                            <div className='border border-primary p-10 rounded-lg'>
+                        <div className="min-h-screen flex items-center justify-center px-6">
+                            <div className='border border-primary p-10 rounded-lg max-w-sm'>
                                 <h1 className='text-3xl uppercase text-primary font-semibold text-center mb-6'>Welcome Back</h1>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className="form-control">
                                         <label className="label">
                                             <span className="label-text">Your Email</span>
                                         </label>
-                                        <input type="email" placeholder="email" className="input input-bordered max-w-sm input-primary" {...register("email", {
+                                        <input type="email" placeholder="email" className="input input-bordered  input-primary" {...register("email", {
                                             required: {
                                                 value: true,
                                                 message: "Email is required"
@@ -88,7 +120,7 @@ const Login = () => {
                                         <label className="label">
                                             <span className="label-text">Password</span>
                                         </label>
-                                        <input type="password" placeholder="password" className="input input-bordered max-w-sm input-primary" {...register("password", {
+                                        <input type="password" placeholder="password" className="input input-bordered  input-primary" {...register("password", {
                                             required: {
                                                 value: true,
                                                 message: "Password is required"
@@ -104,10 +136,14 @@ const Login = () => {
                                         </label>
                                     </div>
 
-                                    <input type="submit" value='Log in' className="btn btn-primary text-white capitalize w-[384px] mt-3" />
-                                </form>
+                                    <input type="submit" value='Log in' className="btn btn-primary text-white capitalize w-full mt-3" />
 
-                                <p className='text-center mt-5'>Don't have an account? <Link className='underline underline-offset-2 text-primary' to="/create-account">Create A New Account</Link></p>
+                                    <div className="divider">OR</div>
+
+                                </form>
+                                <button onClick={() => signInWithGoogle()} className='btn btn-primary btn-outline text-white capitalize w-full'><FcGoogle className=' text-2xl mr-2' />Login with Google</button>
+
+                                <p className='text-center mt-5 text-sm'>Don't have an account? <Link className='underline underline-offset-2 text-primary' to="/create-account">Create A New Account</Link></p>
                             </div>
                         </div>
                     </section>
