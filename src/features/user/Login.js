@@ -143,7 +143,7 @@ const Login = () => {
                                 </form>
                                 <button onClick={() => signInWithGoogle()} className='btn btn-primary btn-outline text-white capitalize w-full'><FcGoogle className=' text-2xl mr-2' />Login with Google</button>
 
-                                <p className='text-center mt-5 text-sm'>Don't have an account? <Link className='underline underline-offset-2 text-primary' to="/create-account">Create A New Account</Link></p>
+                                <p className='text-center mt-5 text-sm'>Don't have an account? <Link className='underline underline-offset-2 text-primary' to="/create-account">Create New Account</Link></p>
                             </div>
                         </div>
                     </section>
