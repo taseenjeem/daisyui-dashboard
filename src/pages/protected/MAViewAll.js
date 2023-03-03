@@ -6,11 +6,11 @@ const MAViewAll = () => {
     return (
         <section className='min-h-screen'>
 
-            <div className='flex justify-between items-center'>
+            <div className='lg:flex flex-row justify-between items-center'>
                 <h1 className='uppercase text-3xl font-semibold text-primary'>Manage Assistants</h1>
 
                 <div>
-                    <Link to="/app/manage-assistant/add-new-assistant" className='btn btn-primary text-white capitalize ml-3'>
+                    <Link to="/app/manage-assistant/add-new-assistant" className='btn btn-primary text-white capitalize my-5 lg:ml-3'>
                         <MdAddCircle className='text-xl mr-2' />Add new Assistant
                     </Link>
                 </div>

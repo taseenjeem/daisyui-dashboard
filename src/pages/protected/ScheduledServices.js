@@ -4,11 +4,11 @@ const ScheduledServices = () => {
     return (
         <section className='min-h-screen'>
 
-            <div className='flex justify-between items-center'>
+            <div className='lg:flex justify-between items-center'>
                 <h1 className='uppercase text-3xl font-semibold text-primary'>Schedule Services</h1>
 
                 <div>
-                    <button className='btn btn-error text-white capitalize ml-3'>
+                    <button className='btn btn-error text-white capitalize my-5 lg:ml-3'>
                         Balance ($): 0
                     </button>
                 </div>

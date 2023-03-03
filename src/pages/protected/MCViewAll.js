@@ -6,11 +6,11 @@ const MCViewAll = () => {
     return (
         <section className='min-h-screen'>
 
-            <div className='flex justify-between items-center'>
+            <div className='lg:flex flex-row justify-between items-center'>
                 <h1 className='uppercase text-3xl font-semibold text-primary'>Manage Clients</h1>
 
                 <div>
-                    <Link to="/app/manage-clients/add-new-client" className='btn btn-primary text-white capitalize ml-3'>
+                    <Link to="/app/manage-clients/add-new-client" className='btn btn-primary text-white capitalize lg:ml-3 my-5'>
                         <MdAddCircle className='text-xl mr-2' />Add new Client
                     </Link>
                 </div>

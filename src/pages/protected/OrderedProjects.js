@@ -6,11 +6,11 @@ const OrderedProjects = () => {
     return (
         <section className='min-h-screen'>
 
-            <div className='flex justify-between items-center'>
+            <div className='lg:flex justify-between items-center'>
                 <h1 className='uppercase text-3xl font-semibold text-primary'>View Projects</h1>
 
                 <div>
-                    <Link to="/app/order-services" className='btn btn-primary text-white capitalize ml-3'>
+                    <Link to="/app/order-services" className='btn btn-primary text-white capitalize my-5 lg:ml-3'>
                         <MdAddCircle className='text-xl mr-2' />Order New Service
                     </Link>
                 </div>
@@ -25,7 +25,7 @@ const OrderedProjects = () => {
                 </div>
             </div>
 
-            <div className='flex items-center justify-around my-6'>
+            <div className='lg:flex items-center justify-around my-6'>
                 <select className="select select-primary w-full max-w-xs">
                     <option disabled selected>Filter By Clients (All)</option>
                     <option>Game of Thrones</option>
@@ -33,7 +33,7 @@ const OrderedProjects = () => {
                     <option>Breaking Bad</option>
                     <option>Walking Dead</option>
                 </select>
-                <select className="select select-primary w-full max-w-xs">
+                <select className="select select-primary w-full my-5 max-w-xs">
                     <option disabled selected>Filter By Services (All)</option>
                     <option>Game of Thrones</option>
                     <option>Lost</option>
