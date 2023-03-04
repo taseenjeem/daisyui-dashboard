@@ -6,7 +6,7 @@ const TransactionLogs = () => {
         <section className='min-h-screen'>
 
             <div>
-                <div className='flex justify-between items-center'>
+                <div className='md:flex justify-between items-center'>
                     <h1 className='uppercase text-3xl font-semibold text-primary'>Transaction History</h1>
 
                     <div>

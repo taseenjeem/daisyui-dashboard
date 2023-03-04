@@ -5,11 +5,11 @@ const DraftServices = () => {
         <section className='min-h-screen'>
 
             <div>
-                <div className='flex justify-between items-center'>
+                <div className='md:flex justify-between items-center'>
                     <h1 className='uppercase text-3xl font-semibold text-primary'>Draft services</h1>
 
                     <div>
-                        <button className='btn btn-secondary text-white capitalize mr-3'>
+                        <button className='btn btn-secondary text-white capitalize mr-3 mt-3 md:mt-0'>
                             Balance ($): 0
                         </button>
                     </div>

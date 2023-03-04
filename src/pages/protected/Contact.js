@@ -3,7 +3,7 @@ import React from 'react';
 const Contact = () => {
     return (
         <section className='min-h-screen'>
-            <h1 className='uppercase text-2xl font-semibold text-primary'>Contact</h1>
+            <h1 className='uppercase text-3xl font-semibold text-primary'>Contact</h1>
             <div className='flex items-center justify-center mt-5'>
                 <form action="">
                     <div className='form-control'>

@@ -9,23 +9,23 @@ const AddNewAssistant = () => {
 
                 <div className='max-w-xl mx-auto mt-14'>
                     <form>
-                        <div className='my-2 flex justify-between items-center'>
+                        <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-5 lg:mr-2">First Name</label>
                             <input type="text" className='input input-primary w-full max-w-md' required />
                         </div>
-                        <div className='my-2 flex justify-between items-center'>
+                        <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-5 lg:mr-2">Last Name</label>
                             <input type="text" className='input input-primary w-full max-w-md' required />
                         </div>
-                        <div className='my-2 flex justify-between items-center'>
+                        <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-10 lg:mr-2">Email</label>
                             <input type="text" className='input input-primary w-full max-w-md' required />
                         </div>
-                        <div className='my-2 flex justify-between items-center'>
+                        <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-2">Username</label>
                             <input type="text" className='input input-primary w-full max-w-md' required />
                         </div>
-                        <div className='my-2 flex justify-between items-center'>
+                        <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-3 lg:mr-2">Password</label>
                             <input type="password" className='input input-primary w-full max-w-md' required />
                         </div>

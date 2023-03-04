@@ -25,7 +25,7 @@ const OrderedProjects = () => {
                 </div>
             </div>
 
-            <div className='lg:flex items-center justify-around my-6'>
+            <div className='flex md:flex-row flex-col items-center justify-around my-6'>
                 <select className="select select-primary w-full max-w-xs">
                     <option disabled selected>Filter By Clients (All)</option>
                     <option>Game of Thrones</option>
