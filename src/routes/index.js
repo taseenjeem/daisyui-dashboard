@@ -3,10 +3,7 @@
 import { lazy } from 'react'
 
 const Dashboard = lazy(() => import('../pages/protected/Dashboard'))
-const Page404 = lazy(() => import('../pages/protected/404'))
 const Blank = lazy(() => import('../pages/protected/Blank'))
-const Charts = lazy(() => import('../pages/protected/Charts'))
-const Integration = lazy(() => import('../pages/protected/Integration'))
 const TransactionLogs = lazy(() => import('../pages/protected/TransactionLogs'))
 const Contact = lazy(() => import('../pages/protected/Contact'))
 const DraftServices = lazy(() => import('../pages/protected/DraftServices'))
@@ -18,6 +15,7 @@ const AddNewClient = lazy(() => import('../pages/protected/AddNewClient'))
 const OrderedProjects = lazy(() => import('../pages/protected/OrderedProjects'))
 const RecurringServices = lazy(() => import('../pages/protected/RecurringServices'))
 const ScheduledServices = lazy(() => import('../pages/protected/ScheduledServices'))
+const DepositFunds = lazy(() => import('../pages/protected/DepositFunds'))
 
 
 const routes = [
@@ -68,6 +66,10 @@ const routes = [
   {
     path: '/view-projects/scheduled-services',
     component: ScheduledServices,
+  },
+  {
+    path: '/deposit-funds',
+    component: DepositFunds,
   },
   {
     path: '/blank',

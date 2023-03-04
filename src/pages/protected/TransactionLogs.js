@@ -13,7 +13,7 @@ const TransactionLogs = () => {
                         <button className='btn btn-secondary text-white capitalize mr-3'>
                             Balance ($): 0
                         </button>
-                        <Link to="#" className='btn btn-primary text-white capitalize my-3 lg:ml-3'>
+                        <Link to="/app/deposit-funds" className='btn btn-primary text-white capitalize my-3 lg:ml-3'>
                             Deposit Funds
                         </Link>
                     </div>

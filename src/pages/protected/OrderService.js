@@ -14,7 +14,7 @@ const OrderService = () => {
                         <button className='btn btn-secondary text-white capitalize my-5 mr-3'>
                             Balance ($): 0
                         </button>
-                        <Link to="#" className='btn btn-primary text-white capitalize lg:ml-3'>
+                        <Link to="/app/deposit-funds" className='btn btn-primary text-white capitalize lg:ml-3'>
                             Deposit Funds
                         </Link>
                     </div>
@@ -35,11 +35,18 @@ const OrderService = () => {
                         <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-2">Select a Service</label>
                             <select className="select select-primary w-full max-w-md" required>
-                                <option disabled selected>--Select a Service--</option>
-                                <option>Game of Thrones</option>
-                                <option>Lost</option>
-                                <option>Breaking Bad</option>
-                                <option>Walking Dead</option>
+                                <option disabled selected>Please Select A Service</option>
+                                <option>Big Citation</option>
+                                <option>Budget Tier 1's</option>
+                                <option>GMB Foundation</option>
+                                <option>GMB Post Management</option>
+                                <option>High Authority Guest Post</option>
+                                <option>Hyper Local Citations</option>
+                                <option>Local Citation Audit</option>
+                                <option>Local Mini Sites</option>
+                                <option>Press Release Marketing Machine</option>
+                                <option>Rich Media Citations</option>
+                                <option>Social Foundation 2.0</option>
                             </select>
                         </div>
                         <div className='my-2 md:flex justify-between items-center'>
