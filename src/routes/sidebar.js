@@ -4,7 +4,7 @@ import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { TbGridDots } from 'react-icons/tb';
 import { TfiWrite } from 'react-icons/tfi';
 import { RiContactsBookFill, RiDraftFill, RiLuggageDepositFill } from 'react-icons/ri';
-import { GrTransaction } from 'react-icons/gr';
+import { BiTransfer } from 'react-icons/bi';
 
 const iconClasses = `h-6 w-6`
 const submenuIconClasses = `h-5 w-5`
@@ -106,7 +106,7 @@ const routes = [
   },
   {
     path: '/app/transaction-logs',
-    icon: <GrTransaction className={iconClasses} />,
+    icon: <BiTransfer className={iconClasses} />,
     name: 'Transaction Logs',
   },
   {

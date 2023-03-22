@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaRegSave } from 'react-icons/fa';
 
 const OrderService = () => {
+
+    // Select services
+    const [service, setService] = useState('');
+    console.log(service)
+
     return (
         <section>
 
@@ -34,7 +39,7 @@ const OrderService = () => {
                         </div>
                         <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-2">Select a Service</label>
-                            <select className="select select-primary w-full max-w-md" required>
+                            <select onChange={e => setService(e.target.value)} className="select select-primary w-full max-w-md" required>
                                 <option disabled selected>Please Select A Service</option>
                                 <option>Big Citation</option>
                                 <option>Budget Tier 1's</option>
@@ -49,6 +54,25 @@ const OrderService = () => {
                                 <option>Social Foundation 2.0</option>
                             </select>
                         </div>
+
+                        {/* Big Citations */}
+                        {
+                            service === 'Big Citation' &&
+                            <>
+                                <div className='md:flex justify-between items-center my-2'>
+                                    <label className="font-semibold mr-2">What is your targeted country for this order?</label>
+                                    <select className="select select-primary max-w-md" required>
+                                        <option disabled selected>Select a country</option>
+                                        <option>United State of America (USA)</option>
+                                        <option>United Kingdom (UK)</option>
+                                        <option>Canada (CAN)</option>
+                                        <option>Australia (AU)</option>
+                                        <option>Others</option>
+                                    </select>
+                                </div>
+                            </>
+                        }
+
                         <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-2">Coupon Code</label>
                             <input type="text" className='input input-primary w-full max-w-md' />
