@@ -21,6 +21,11 @@ const OrderService = () => {
     const [selectedValue7, setSelectedValue7] = useState('');
     const [selectedValue8, setSelectedValue8] = useState('');
     const [selectedValue9, setSelectedValue9] = useState('');
+    // Select service "Citation Cleanup & Boost"
+    const [selectedValue10, setSelectedValue10] = useState('');
+    const [selectedValue11, setSelectedValue11] = useState('');
+    const [selectedValue12, setSelectedValue12] = useState('');
+    const [selectedValue13, setSelectedValue13] = useState('');
 
     return (
         <section>
@@ -57,6 +62,7 @@ const OrderService = () => {
                                 <option disabled selected>Please Select A Service</option>
                                 <option>Big Citation</option>
                                 <option>Budget Tier 1's</option>
+                                <option>Citation Cleanup & Boost</option>
                                 <option>GMB Foundation</option>
                                 <option>GMB Post Management</option>
                                 <option>High Authority Guest Post</option>
@@ -495,6 +501,153 @@ const OrderService = () => {
 
                                     </div>
 
+                                </div>
+                            </>
+                        }
+                        {
+                            service === "Citation Cleanup & Boost" &&
+                            <>
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />Do you need a Citation Audit to see how many edits are needed first?</label>
+
+                                    <div className=''>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="Yes, I'm not sure how many inaccurate citations are out there - ($14.99)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue10 === "Yes, I'm not sure how many inaccurate citations are out there - ($14.99)"}
+                                                onChange={(event) => setSelectedValue10(event.target.value)}
+                                            />
+                                            <label className='mx-2'>Yes, I'm not sure how many inaccurate citations are out there - ($14.99)</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="No, I will upload the full list to my order below."
+                                                className="radio radio-primary"
+                                                checked={selectedValue10 === 'No, I will upload the full list to my order below.'}
+                                                onChange={(event) => setSelectedValue10(event.target.value)}
+                                            />
+                                            <label className='mx-2'>No, I will upload the full list to my order below.</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='my-4 md:flex justify-between items-center'>
+                                    <label className="font-semibold mr-2">How many citations do you need cleaned up? <span className='text-sm text-red-500'>(@ 0.99 Plus $20 - Setup Cost)</span></label>
+                                    <input min={1} type="number" className='input input-primary w-full max-w-md' />
+                                </div>
+
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />Add on extra Hyper Local citations to your order if you'd us to complete them alongside your campaign. </label>
+
+                                    <div className=''>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="No Thanks"
+                                                className="radio radio-primary"
+                                                checked={selectedValue11 === "No Thanks"}
+                                                onChange={(event) => setSelectedValue11(event.target.value)}
+                                            />
+                                            <label className='mx-2'>No Thanks</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="40 Done-For-You Citations - ($39.00)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue11 === '40 Done-For-You Citations - ($39.00)'}
+                                                onChange={(event) => setSelectedValue11(event.target.value)}
+                                            />
+                                            <label className='mx-2'>40 Done-For-You Citations - ($39.00)</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="80 Done-For-You Citations - ($74.00)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue11 === '80 Done-For-You Citations - ($74.00)'}
+                                                onChange={(event) => setSelectedValue11(event.target.value)}
+                                            />
+                                            <label className='mx-2'>80 Done-For-You Citations - ($74.00)</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="150 Done-For-You Citations - ($139.00)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue11 === '150 Done-For-You Citations - ($139.00)'}
+                                                onChange={(event) => setSelectedValue11(event.target.value)}
+                                            />
+                                            <label className='mx-2'>150 Done-For-You Citations - ($139.00)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />Add on extra Hyper Local citations to your order if you'd us to complete them alongside your campaign. </label>
+
+                                    <div className=''>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="No Thanks"
+                                                className="radio radio-primary"
+                                                checked={selectedValue12 === "No Thanks"}
+                                                onChange={(event) => setSelectedValue12(event.target.value)}
+                                            />
+                                            <label className='mx-2'>No Thanks</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="Yes, drip contextual links to the properties you set up for me for 14 days - ($29.99)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue12 === 'Yes, drip contextual links to the properties you set up for me for 14 days - ($29.99)'}
+                                                onChange={(event) => setSelectedValue12(event.target.value)}
+                                            />
+                                            <label className='mx-2'>Yes, drip contextual links to the properties you set up for me for 14 days - ($29.99)</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="Yes, drip contextual links to the properties you set up for me for 30 days - ($59.99)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue12 === 'Yes, drip contextual links to the properties you set up for me for 30 days - ($59.99)'}
+                                                onChange={(event) => setSelectedValue12(event.target.value)}
+                                            />
+                                            <label className='mx-2'>Yes, drip contextual links to the properties you set up for me for 30 days - ($59.99)</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />Add on extra Hyper Local citations to your order if you'd us to complete them alongside your campaign. </label>
+
+                                    <div className=''>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="No Thanks"
+                                                className="radio radio-primary"
+                                                checked={selectedValue13 === "No Thanks"}
+                                                onChange={(event) => setSelectedValue13(event.target.value)}
+                                            />
+                                            <label className='mx-2'>No Thanks</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="Yes, please. - ($4.95)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue13 === "Yes, please. - ($4.95)"}
+                                                onChange={(event) => setSelectedValue13(event.target.value)}
+                                            />
+                                            <label className='mx-2'>Yes, please. - ($4.95)</label>
+                                        </div>
+                                    </div>
                                 </div>
                             </>
                         }
