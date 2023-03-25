@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaHandPointRight, FaRegSave } from 'react-icons/fa';
+import { FaRegSave } from 'react-icons/fa';
+import { ImArrowRight } from 'react-icons/im';
 
 const OrderService = () => {
 
-    // Select services
     const [service, setService] = useState('');
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    // Select services "Big Citation"
     const [selectedValue, setSelectedValue] = useState('');
     const [selectedValue1, setSelectedValue1] = useState('');
     const [selectedValue2, setSelectedValue2] = useState('');
     const [selectedValue3, setSelectedValue3] = useState('');
     const [selectedValue4, setSelectedValue4] = useState('');
     const [selectedValue5, setSelectedValue5] = useState('');
-    const [totalPrice, setTotalPrice] = useState(0);
+    // Select services "Budget Tier 1's"
+    const [nish, setNish] = useState('');
+    const [selectedValue6, setSelectedValue6] = useState('');
+    const [selectedValue7, setSelectedValue7] = useState('');
+    const [selectedValue8, setSelectedValue8] = useState('');
+    const [selectedValue9, setSelectedValue9] = useState('');
 
     return (
         <section>
@@ -31,7 +39,7 @@ const OrderService = () => {
                     </div>
                 </div>
 
-                <div className='max-w-xl mx-auto mt-14'>
+                <div className='max-w-2xl mx-auto mt-14'>
                     <form>
                         <div className='my-2 md:flex justify-between items-center'>
                             <label className="font-semibold mr-2">Select a Client</label>
@@ -78,9 +86,9 @@ const OrderService = () => {
                                 </div>
 
                                 <div className='my-8'>
-                                    <label className="font-semibold mr-2"><FaHandPointRight className='inline-block text-xl mr-2' />Add on extra Hyper Local citations to your order if you'd us to complete them alongside your campaign.</label>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />Add on extra Hyper Local citations to your order if you'd us to complete them alongside your campaign.</label>
 
-                                    <div className='grid grid-cols-2'>
+                                    <div className='  '>
                                         <div className='flex items-center my-2'>
                                             <input
                                                 type="radio"
@@ -98,7 +106,7 @@ const OrderService = () => {
                                                 value="40 Done-For-you Citations - ($39.00)"
                                                 className="radio radio-primary"
                                                 checked={selectedValue === '40 Done-For-you Citations - ($39.00)'}
-                                                onChange={(event) => setSelectedValue(event.target.value)}
+                                                onChange={(event) => { setSelectedValue(event.target.value); setTotalPrice(totalPrice + 39.00) }}
                                             />
                                             <label className='mx-2'>40 Done-For-you Citations - ($39.00)</label>
                                         </div>
@@ -109,7 +117,7 @@ const OrderService = () => {
                                                 value="80 Done-For-you Citations - ($74.00)"
                                                 className="radio radio-primary"
                                                 checked={selectedValue === '80 Done-For-you Citations - ($74.00)'}
-                                                onChange={(event) => setSelectedValue(event.target.value)}
+                                                onChange={(event) => { setSelectedValue(event.target.value); setTotalPrice(totalPrice + 74.00) }}
                                             />
                                             <label className='mx-2'>80 Done-For-you Citations - ($74.00)</label>
                                         </div>
@@ -129,7 +137,7 @@ const OrderService = () => {
                                 </div>
 
                                 <div className='my-8'>
-                                    <label className="font-semibold mr-2"><FaHandPointRight className='inline-block text-xl mr-2' />  If you have pre-existing citations you have 2 options.
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />  If you have pre-existing citations you have 2 options.
                                         <br />1) You can send us your list of citations and we can work around them.
                                         <br />2) We can run an audit for you, find what's out there, and then work around them. Either way, it's important to have your pre-existing citations accounted for so you're assured no duplicates are created.</label>
 
@@ -161,7 +169,7 @@ const OrderService = () => {
                                 </div>
 
                                 <div className='my-8'>
-                                    <label className="font-semibold mr-2"><FaHandPointRight className='inline-block text-xl mr-2' /> We can write 10 unique business descriptions and rotate them between each submission, so you'll have a little more unique content working in your favor. </label>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' /> We can write 10 unique business descriptions and rotate them between each submission, so you'll have a little more unique content working in your favor. </label>
 
                                     <div className='my-3'>
                                         <div className='flex items-center my-2'>
@@ -191,7 +199,7 @@ const OrderService = () => {
                                 </div>
 
                                 <div className='my-8'>
-                                    <label className="font-semibold mr-2"><FaHandPointRight className='inline-block text-xl mr-2' /> We can drip contextual links over the course of 14 or 30 days. Links are distributed randomly to the live link URLs we create for you at a rate of roughly 40-60 links per day. These are good for improving indexing and pushing some juice to those new links/citations that are built for you. </label>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' /> We can drip contextual links over the course of 14 or 30 days. Links are distributed randomly to the live link URLs we create for you at a rate of roughly 40-60 links per day. These are good for improving indexing and pushing some juice to those new links/citations that are built for you. </label>
 
                                     <div className='my-3'>
                                         <div className='flex items-center my-2'>
@@ -232,7 +240,7 @@ const OrderService = () => {
                                 </div>
 
                                 <div className='my-8'>
-                                    <label className="font-semibold mr-2"><FaHandPointRight className='inline-block text-xl mr-2' /> Need your order in 7 days or less? Use this option to get your order rushed </label>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' /> Need your order in 7 days or less? Use this option to get your order rushed </label>
 
                                     <div className='my-3'>
                                         <div className='flex items-center my-2'>
@@ -262,7 +270,7 @@ const OrderService = () => {
                                 </div>
 
                                 <div className='my-8'>
-                                    <label className="font-semibold mr-2"><FaHandPointRight className='inline-block text-xl mr-2' /> We will send multiple Google crawlers to your fresh links over a period of 3 weeks. </label>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' /> We will send multiple Google crawlers to your fresh links over a period of 3 weeks. </label>
 
                                     <div className='my-3'>
                                         <div className='flex items-center my-2'>
@@ -285,6 +293,204 @@ const OrderService = () => {
                                                 onChange={(event) => setSelectedValue5(event.target.value)}
                                             />
                                             <label className='mx-2'>Yes, please - ($4.95)</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </>
+                        }
+
+                        {/* Budget Tier 1's */}
+                        {
+                            service === "Budget Tier 1's" &&
+                            <>
+                                <div className='my-2 md:flex justify-between items-center'>
+                                    <label className="font-semibold mr-2">Niche Preference</label>
+                                    <select onChange={e => setNish(e.target.value)} className="select select-primary w-full max-w-md" required>
+                                        <option disabled selected>General</option>
+                                        <option>Apps</option>
+                                        <option>Blogging</option>
+                                        <option>Career</option>
+                                        <option>Writing</option>
+                                        <option>Fashion</option>
+                                        <option>Finance</option>
+                                        <option>Home and Real Estate</option>
+                                        <option>Travel</option>
+                                        <option>Fashion and Health</option>
+                                        <option>Food</option>
+                                        <option>Gaming</option>
+                                        <option>Mommy</option>
+                                        <option>Music</option>
+                                        <option>News</option>
+                                        <option>Tech</option>
+                                    </select>
+                                </div>
+
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />I want.....</label>
+
+                                    <div className='grid  '>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="No Thanks"
+                                                className="radio radio-primary"
+                                                checked={selectedValue6 === 'No Thanks'}
+                                                onChange={(event) => setSelectedValue6(event.target.value)}
+                                            />
+                                            <label className='mx-2'>No Thanks</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="3 Budget Tier 1 Posts - ($59.00) "
+                                                className="radio radio-primary"
+                                                checked={selectedValue6 === '3 Budget Tier 1 Posts - ($59.00) '}
+                                                onChange={(event) => setSelectedValue6(event.target.value)}
+                                            />
+                                            <label className='mx-2'>3 Budget Tier 1 Posts - ($59.00) </label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="5 Budget Tier 1 Posts - ($98.00)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue6 === '5 Budget Tier 1 Posts - ($98.00)'}
+                                                onChange={(event) => setSelectedValue6(event.target.value)}
+                                            />
+                                            <label className='mx-2'>5 Budget Tier 1 Posts - ($98.00)</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="10 Budget Tier 1 Posts - ($195.00)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue6 === '10 Budget Tier 1 Posts - ($195.00)'}
+                                                onChange={(event) => setSelectedValue6(event.target.value)}
+                                            />
+                                            <label className='mx-2'>10 Budget Tier 1 Posts - ($195.00)</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="15 Budget Tier 1 Posts - ($290.00)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue6 === '15 Budget Tier 1 Posts - ($290.00)'}
+                                                onChange={(event) => setSelectedValue6(event.target.value)}
+                                            />
+                                            <label className='mx-2'>15 Budget Tier 1 Posts - ($290.00)</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />Nofollow or Dofollow Only?</label>
+
+                                    <div className=''>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="I will take a nofollow site, but only if it is in my niche."
+                                                className="radio radio-primary"
+                                                checked={selectedValue7 === 'I will take a nofollow site, but only if it is in my niche.'}
+                                                onChange={(event) => setSelectedValue7(event.target.value)}
+                                            />
+                                            <label className='mx-2'>I will take a nofollow site, but only if it is in my niche.</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="I don't want any nofollow links, even if they are niche related."
+                                                className="radio radio-primary"
+                                                checked={selectedValue7 === "I don't want any nofollow links, even if they are niche related."}
+                                                onChange={(event) => setSelectedValue7(event.target.value)}
+                                            />
+                                            <label className='mx-2'>I don't want any nofollow links, even if they are niche related.</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="I don't care, just give me those links."
+                                                className="radio radio-primary"
+                                                checked={selectedValue7 === "I don't care, just give me those links."}
+                                                onChange={(event) => setSelectedValue7(event.target.value)}
+                                            />
+                                            <label className='mx-2'>I don't care, just give me those links.</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div className='my-2 md:flex justify-between items-center'>
+                                    <label className="font-semibold mr-2">URLs and Associated Keywords</label>
+                                    <textarea type="text" className='textarea textarea-primary w-full min-h-[100px] max-w-md' />
+                                </div>
+
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />We can drip contextual links over the course of 14 or 30 days. Links are distributed randomly to the live link URLs we create for you at a rate of roughly 40-60 links per day. These are good for improving indexing and pushing some juice to those new links/citations that are built for you.</label>
+
+                                    <div className=''>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="No Thanks"
+                                                className="radio radio-primary"
+                                                checked={selectedValue8 === 'No Thanks'}
+                                                onChange={(event) => setSelectedValue8(event.target.value)}
+                                            />
+                                            <label className='mx-2'>No Thanks</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="Yes, drip contextual links to the properties you set up for me for 14 days - ($29.99)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue8 === "Yes, drip contextual links to the properties you set up for me for 14 days - ($29.99)"}
+                                                onChange={(event) => setSelectedValue8(event.target.value)}
+                                            />
+                                            <label className='mx-2'>Yes, drip contextual links to the properties you set up for me for 14 days - ($29.99)</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="Yes, drip contextual links to the properties you set up for me for 30 days - ($59.99)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue8 === "Yes, drip contextual links to the properties you set up for me for 30 days - ($59.99)"}
+                                                onChange={(event) => setSelectedValue8(event.target.value)}
+                                            />
+                                            <label className='mx-2'>Yes, drip contextual links to the properties you set up for me for 30 days - ($59.99)</label>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div className='my-8'>
+                                    <label className="font-semibold mr-2"><ImArrowRight className='inline-block text-xl mr-2' />We will send multiple Google crawlers to your fresh links over a period of 3 weeks.</label>
+
+                                    <div className=''>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="No Thanks"
+                                                className="radio radio-primary"
+                                                checked={selectedValue9 === 'No Thanks'}
+                                                onChange={(event) => setSelectedValue9(event.target.value)}
+                                            />
+                                            <label className='mx-2'>No Thanks</label>
+                                        </div>
+                                        <div className='flex items-center my-2'>
+                                            <input
+                                                type="radio"
+                                                value="Yes, please. - ($4.95)"
+                                                className="radio radio-primary"
+                                                checked={selectedValue9 === 'Yes, please. - ($4.95)'}
+                                                onChange={(event) => setSelectedValue9(event.target.value)}
+                                            />
+                                            <label className='mx-2'>Yes, please. - ($4.95)</label>
                                         </div>
 
                                     </div>
